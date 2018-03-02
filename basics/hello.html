@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+    body, html {
+      margin: 0;
+      height: 100%;
+    }
+    #canvas {
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+    }
+</style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="../utils/utils.js"></script>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let W = canvas.width = 800;
+        let H = canvas.height = 600;
+        
+        let alpha = 0;
+        let fadeIn = true;
+        let helloImage = new Image();
+        helloImage.src = '../assets/images/bg.jpg';
+        helloImage.onload = function(){
+            
+        }
+        
+        function drawScreen(){
+            ctx.globalAlpha = alpha;
+            ctx.drawImage(helloImage, 0, 0);
+            if(fadeIn){
+                alpha += 0.01;
+                if(alpha >= 1){
+                    alpha = 1;
+                    fadeIn = false;
+                }
+            }else{
+                alpha -= 0.01;
+                if(alpha < 0){
+                    alpha = 0;
+                    fadeIn = true;
+                }
+            }
+        }
+        (function faded(){
+            window.requestAnimationFrame(faded);
+            ctx.clearRect(0, 0, W, H);
+            drawScreen();
+        })()
+        
+    </script>
+</body>
+</html>
