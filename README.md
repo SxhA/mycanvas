@@ -8,6 +8,14 @@
         1弧度 = (π/180) * 度<br />
         1度 = (180/π) * 弧度<br/>
 2、canvas坐标系中求角度：<br />
-        dx = mouse.x - W/2
-        dy = mouse.y - W/2
-        angle = Math.atan2(dy,dx) * 180 / Math.PI
+        dx = mouse.x - W/2<br />
+        dy = mouse.y - W/2<br />
+        angle = Math.atan2(dy,dx) * 180 / Math.PI<br />
+3、圆的函数表达式<br />
+        x² + y² = R²<br />
+        x = R * cosθ<br />
+        y = R * sinθ<br />
+4、椭圆的函数表达式<br />
+        (x/a)² + (y/b)² = 1<br />
+        x = a * cosθ<br />
+        y = b * sinθ<br />
