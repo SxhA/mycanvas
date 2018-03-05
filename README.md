@@ -19,6 +19,9 @@
     (x/a)² + (y/b)² = 1<br />
     x = a * cosθ<br />
     y = b * sinθ<br />
+5、摩擦力的模拟<br />
+    正确方法：const friction = 0.1; speed = speed > friction ? speed - friction : 0;<br />
+    简单方法：const friction = 0.8; speed *= friction;<br />
 
 # js算法公式：
 1、指定范围的随机数<br />
