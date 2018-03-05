@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+    body, html {
+      margin: 0;
+      height: 100%;
+    }
+    #canvas {
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+    }
+</style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="../utils/utils.js"></script>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let W = canvas.width = 800;
+        let H = canvas.height = 600;
+        
+        function drawScreen(){
+            ctx.fillStyle = 'black';
+            ctx.fillRect(10, 10, 200, 200);
+            ctx.save();
+            ctx.beginPath();
+
+            ctx.rect(0, 0, 50, 50);
+            ctx.clip();
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 5;
+            ctx.arc(100, 100, 100, (Math.PI/180)*0, (Math.PI/180)*360, false);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.rect(0, 0, 500, 500);
+            ctx.clip();
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'blue';
+            ctx.lineWidth = 5;
+            ctx.arc(100, 100, 50, (Math.PI/180)*0, (Math.PI/180)*360, false);
+            ctx.stroke();
+            ctx.closePath();
+        }
+        drawScreen();
+        
+    </script>
+</body>
+</html>
