@@ -23,6 +23,11 @@
     正确方法：const friction = 0.1; speed = speed > friction ? speed - friction : 0;<br />
     简单方法：const friction = 0.8; speed *= friction;<br />
 
+# 鼠标交互
+1、圆形判断是否被点击：<br />
+    使用勾股定理判断半径是否大于点击的位置<br />
+    this.r >= Math.sqrt((x - this.x)**2 + (y - this.y)**2);<br />
+
 # js算法公式：
 1、指定范围的随机数<br />
     Math.random() * (max - min) + min
